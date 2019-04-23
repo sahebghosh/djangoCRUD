@@ -34,7 +34,7 @@ def edit(request, id):
 
 def update(request, id):
     book = BookLibrary.objects.get(pk=id)
-    book.title = request.GET['name']
+    book.name = request.GET['name']
     book.price = request.GET['price']
     book.author = request.GET['author']
     book.save()
