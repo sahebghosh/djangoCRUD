@@ -1,0 +1,30 @@
+{% extends "crud/base.html" %} {% block content %}
+<div>
+  <h3 class="heading text-center">BOOK DETAILS</h3>
+  <div class="heading-underline"></div>
+</div>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Book Name</th>
+      <th scope="col">Author</th>
+      <th scope="col">Price</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for book in books %}
+    <tr>
+      <td>{{ book.name }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.price }}</td>
+      <td>
+        <a class="btn btn-info" href="/edit/{{ book.id }}">Edit</a>
+        <a class="btn btn-danger" href="/delete/{{ book.id }}">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a class="btn btn-primary" href="/add/">Add Book</a>
+{% endblock %}

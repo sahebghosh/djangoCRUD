@@ -1,0 +1,41 @@
+{% extends "crud/base.html" %} {% block content %}
+<div>
+  <h3 class="heading text-center">BOOK DETAILS</h3>
+  <div class="heading-underline"></div>
+</div>
+
+<form action="/update/{{ book.id }}">
+  {% csrf_token %}
+
+  <label class="form-group" for="title">Book Name: </label>
+  <input
+    class="form-control"
+    type="text"
+    name="name"
+    value="{{ book.name }}"
+    placeholder="{{ book.name }}"
+  />
+
+  <label class="form-group" for="price">Price: </label>
+  <input
+    class="form-control"
+    type="text"
+    name="price"
+    value="{{ book.price }}"
+    placeholder="{{ book.price }}"
+  />
+
+  <label class="form-group" for="author">Author: </label>
+  <input
+    class="form-control"
+    type="text"
+    name="author"
+    value="{{ book.author }}"
+    placeholder="{{ book.author }}"
+  />
+  <br />
+
+  <input class="btn btn-primary" type="submit" value="Update" />
+</form>
+
+{% endblock %}
